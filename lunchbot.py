@@ -37,6 +37,11 @@ lunch_gif = ['https://media.giphy.com/media/7e3Y9b3nTWsaA/giphy.gif',
              'https://media.giphy.com/media/lYRFF6Voh4brq/giphy.gif',
              'https://media.giphy.com/media/rVhabuN8Ww2NW/giphy.gif']
 
+commands = 'Доступные команды:\n' + '\n'.join(['/lunch - Колесо фортуны',
+                                               '/list - Куда ходим',
+                                               '/poll - Народовластие',
+                                               '/hell - Вы действительно хотите знать?'])
+
 logger.info('bot data is up')
 
 
@@ -88,6 +93,17 @@ async def launch_poll(event):
     logger.info(r.text)
     await bot.send_message(event.chat_id, 'Голосуем!')
     await bot.send_file(event.chat_id, get_random_gif())
+
+
+@bot.on(events.NewMessage(pattern='/hell'))
+async def tram_place_message(event):
+    await bot.send_file(event.chat_id, 'https://media.giphy.com/media/n0pwZRRYfLv7q/giphy.gif')
+    await bot.send_message(event.chat_id, 'Трамвайка')
+
+
+@bot.on(events.NewMessage(pattern='/info'))
+async def send_info(event):
+    await bot.send_message(event.chat_id, commands)
 
 
 logger.info('start')
