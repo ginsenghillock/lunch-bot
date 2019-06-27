@@ -41,11 +41,11 @@ logger.info('bot data is up')
 
 
 def get_random_gif():
-    return lunch_gif[random.randint(0, len(lunch_gif) - 1)]
+    return random.choice(lunch_gif)
 
 
 def get_random_lunch_place():
-    return places[random.randint(0, len(places))]
+    return random.choice(places)
 
 
 def get_random_lunch_places():
