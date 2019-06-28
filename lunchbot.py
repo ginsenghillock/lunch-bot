@@ -1,6 +1,5 @@
 from telethon import TelegramClient, events
 import random
-#import schedule
 import requests
 import json
 import time
