@@ -39,7 +39,8 @@ lunch_gif = ['https://media.giphy.com/media/7e3Y9b3nTWsaA/giphy.gif',
 commands = 'Доступные команды:\n' + '\n'.join(['/lunch - Колесо фортуны',
                                                '/list - Куда ходим',
                                                '/poll - Народовластие',
-                                               '/hell - Вы действительно хотите знать?'])
+                                               '/hell - Вы действительно хотите знать?',
+                                               '/ping - Пациент скорее жив, чем мёртв'])
 
 logger.info('bot data is up')
 
@@ -103,6 +104,11 @@ async def tram_place_message(event):
 @bot.on(events.NewMessage(pattern='/info'))
 async def send_info(event):
     await bot.send_message(event.chat_id, commands)
+
+
+@bot.on(events.NewMessage(pattern='/ping'))
+async def ping(event):
+    await bot.send_message(event.chat_id, 'Рано вы меня хороните')
 
 
 logger.info('start')
