@@ -40,7 +40,7 @@ commands = 'Доступные команды:\n' + '\n'.join(['/lunch - Кол�
                                                '/list - Куда ходим',
                                                '/poll - Народовластие',
                                                '/hell - Вы действительно хотите знать?',
-                                               '/ping - Пациент скорее жив, чем мёртв'])
+                                               '/ping - Пациент скорее жив, чем мертв'])
 
 logger.info('bot data is up')
 
@@ -109,7 +109,6 @@ async def send_info(event):
 @bot.on(events.NewMessage(pattern='/ping'))
 async def ping(event):
     await bot.send_message(event.chat_id, 'Рано вы меня хороните')
-
 
 logger.info('start')
 
